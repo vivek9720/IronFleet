@@ -1,0 +1,15 @@
+IFTL/1 fleet=midwest-haul
+meta vessel=tractor-17
+meta depot=KC03
+route id=R17 from=KC03 to=STL02 distance=386000 risk=21 profile=urban tags=escort|night
+waypoint route=R17 index=0 lat=39.0997 lon=-94.5786 dwell=90
+waypoint route=R17 index=1 lat=38.6270 lon=-90.1994 dwell=60
+sensor id=engine.rpm value=1450 unit=rpm ts=17000001 quality=99
+sensor id=brake.pressure value=480 unit=kpa ts=17000002 quality=97
+alert id=A17 when=engine.rpm op=> value=4200 severity=high for=30 tags=powertrain
+config inspect=deep stride=11 window=512 retain=true
+flow id=41 src=10.1.0.7:55200 dst=10.9.4.20:443 proto=tcp
+ defer id=41 seq=1 declared=16 data=474554202f74656c656d65747279
+ inspect id=41 slot=2 signal=engine.rpm
+ ack id=41 seq=1
+close id=41

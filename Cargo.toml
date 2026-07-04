@@ -1,0 +1,25 @@
+[package]
+name = "ironfleet"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.70"
+description = "Offline decoder for IronFleet telemetry archives, route manifests, alert rules, and session tapes"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+keywords = ["telemetry", "decoder", "protocol", "fleet", "fuzzing"]
+categories = ["parser-implementations", "encoding"]
+
+[dependencies]
+
+[lib]
+name = "ironfleet"
+path = "src/lib.rs"
+
+[profile.dev]
+overflow-checks = true
+
+[profile.release]
+opt-level = 3
+debug = true
+overflow-checks = true
+panic = "abort"

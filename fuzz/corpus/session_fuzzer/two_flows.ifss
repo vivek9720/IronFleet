@@ -1,0 +1,10 @@
+IFSS/1
+config inspect=deep stride=9 window=128 retain=true
+flow id=12 src=172.16.0.5:3200 dst=172.16.9.8:443 proto=tcp
+ defer id=12 seq=1 declared=8 data=70696e672d6f6b21
+ack id=12 seq=1
+close id=12
+flow id=13 src=172.16.0.6:3201 dst=172.16.9.8:443 proto=tcp
+ defer id=13 seq=1 declared=8 data=706f6e672d6f6b21
+ inspect id=13 slot=3 signal=battery.voltage
+close id=13

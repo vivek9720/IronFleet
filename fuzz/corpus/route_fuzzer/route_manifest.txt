@@ -1,0 +1,6 @@
+route id=RURAL5 from=OMA1 to=DSM4 distance=219000 risk=18 profile=remote tags=remote|day
+waypoint route=RURAL5 index=0 lat=41.2565 lon=-95.9345 dwell=45
+waypoint route=RURAL5 index=1 lat=41.5868 lon=-93.6250 dwell=75
+sensor id=gps.speed value=82 unit=kmh ts=17000200 quality=91
+alert id=SPEED_RURAL when=gps.speed op=> value=95 severity=medium for=20 tags=route
+profile name=remote

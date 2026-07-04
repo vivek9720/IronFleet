@@ -1,0 +1,6 @@
+target/
+fuzz/target/
+*.profraw
+*.profdata
+crash-*
+artifact-*

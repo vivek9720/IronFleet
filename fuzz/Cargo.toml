@@ -1,0 +1,35 @@
+[package]
+name = "ironfleet-fuzz"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+ironfleet = { path = ".." }
+libfuzzer-sys = { path = "libfuzzer-sys" }
+
+[[bin]]
+name = "archive_fuzzer"
+path = "fuzz_targets/archive_fuzzer.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "session_fuzzer"
+path = "fuzz_targets/session_fuzzer.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "route_fuzzer"
+path = "fuzz_targets/route_fuzzer.rs"
+test = false
+doc = false
+bench = false

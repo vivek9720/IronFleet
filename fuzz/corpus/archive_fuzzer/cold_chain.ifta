@@ -1,0 +1,11 @@
+IFTL/1 fleet=reefer-west
+route id=COLD7 from=PHX1 to=LAX9 distance=593000 risk=38 profile=cold-chain tags=cold-chain|night
+waypoint route=COLD7 index=0 lat=33.4484 lon=-112.0740 dwell=120
+sensor id=cargo.temperature value=-4.5 unit=c ts=17000100 quality=96
+alert id=CARGO_TEMP when=cargo.temperature op=> value=4.0 severity=critical for=120 tags=cold-chain
+config inspect=deep stride=23 window=256 retain=true
+flow id=77 src=10.2.0.3:50100 dst=10.8.0.9:1883 proto=mqtt
+data id=77 seq=1 data=1012000474656d70
+ defer id=77 seq=2 declared=12 data=2d342e352c6f6b
+ inspect id=77 slot=4 signal=cargo.temperature
+close id=77

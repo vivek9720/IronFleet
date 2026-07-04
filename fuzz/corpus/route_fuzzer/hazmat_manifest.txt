@@ -1,0 +1,6 @@
+route id=HAZ3 from=HOU2 to=NOLA1 distance=557000 risk=55 profile=hazmat tags=hazmat|escort
+waypoint route=HAZ3 index=0 lat=29.7604 lon=-95.3698 dwell=180
+waypoint route=HAZ3 index=1 lat=29.9511 lon=-90.0715 dwell=120
+sensor id=hydraulic.pressure value=1200 unit=kpa ts=17000300 quality=88
+alert id=HYDRAULIC_HIGH when=hydraulic.pressure op=> value=1800 severity=high for=60 tags=hazmat
+fault code=1003

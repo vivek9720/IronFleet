@@ -1,0 +1,8 @@
+IFSS/1
+config inspect=deep stride=17 window=384 retain=true
+flow id=9 src=192.168.1.9:4100 dst=10.20.0.4:4810 proto=udp
+data id=9 seq=1 data=0102030405060708
+ defer id=9 seq=2 declared=16 data=6162636465666768696a6b6c6d6e6f70
+ inspect id=9 slot=1 signal=brake.pressure
+ack id=9 seq=2
+close id=9
